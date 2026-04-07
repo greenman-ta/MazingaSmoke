@@ -23,7 +23,7 @@ class BinaryFocalLossBalanced(nn.Module):
         # alpha mixata
         alpha_t = targets * self.alpha_pos + (1.0 - targets) * self.alpha_neg
 
-        # pt per soft target: p se target=1, (1-p) se target=0
+        # p se target=1, (1-p) se target=0
         pt = targets * p + (1.0 - targets) * (1.0 - p)
 
         loss = alpha_t * (1.0 - pt).pow(self.gamma) * bce

@@ -1,0 +1,4 @@
+tn	fp	fn	tp
+57	1	3	10
+FPR	FNR	pos	neg
+0.017241	0.230769	13	58

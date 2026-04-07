@@ -4,6 +4,7 @@ This file is obtained and modified from:
 - https://github.com/jbohnslav/opencv_transforms
 - https://github.com/YU-Zhiyang/opencv_transforms_torchvision
 - https://pytorch.org/docs/stable/_modules/torchvision/transforms/transforms.html
+- https://github.com/CMU-CREATE-Lab/deep-smoke-machine
 """
 import os
 thread = "1"
@@ -828,8 +829,8 @@ class ReflectPad(object):
 
 class RandomPerspectiveReflect(object):
     """
-    Applica distorsione prospettica usando BORDER_REFLECT_101.
-    Evita le 'bande nere' che creano falsi bordi.
+    Applica distorsione prospettica usando BORDER_REFLECT_101
+    Evita le bande nere che creano falsi bordi
     """
     def __init__(self, distortion_scale=0.5, p=0.5, interpolation=cv2.INTER_LINEAR):
         self.p = p

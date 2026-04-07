@@ -1,0 +1,440 @@
+# Metriche train
+precision_binary_smoke	0.875
+recall_binary_smoke	0.5666666666666667
+f1_binary_smoke	0.6878612716763006
+roc_auc	0.8498781838316721
+precision_macro	0.8472222222222222
+recall_macro	0.7635658914728682
+f1_macro	0.7861147900137392
+precision_weighted	0.837673611111111
+recall_weighted	0.83125
+f1_weighted	0.8198894369422337
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.82      0.96      0.88       430
+       smoke       0.88      0.57      0.69       210
+
+    accuracy                           0.83       640
+   macro avg       0.85      0.76      0.79       640
+weighted avg       0.84      0.83      0.82       640
+
+# Metriche train
+precision_binary_smoke	0.8757763975155279
+recall_binary_smoke	0.6322869955156951
+f1_binary_smoke	0.734375
+roc_auc	0.8462646922820488
+precision_macro	0.8522932091961773
+recall_macro	0.7921626824101258
+f1_macro	0.8102678571428572
+precision_weighted	0.8451748677368742
+recall_weighted	0.840625
+f1_weighted	0.8332728794642857
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.83      0.95      0.89       417
+       smoke       0.88      0.63      0.73       223
+
+    accuracy                           0.84       640
+   macro avg       0.85      0.79      0.81       640
+weighted avg       0.85      0.84      0.83       640
+
+# Metriche train
+precision_binary_smoke	0.8767123287671232
+recall_binary_smoke	0.6336633663366337
+f1_binary_smoke	0.735632183908046
+roc_auc	0.9029341290293413
+precision_macro	0.8634573789584604
+recall_macro	0.7962837379628374
+f1_macro	0.8184598687780573
+precision_weighted	0.858569616216516
+recall_weighted	0.85625
+f1_weighted	0.849002577573874
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.85      0.96      0.90       438
+       smoke       0.88      0.63      0.74       202
+
+    accuracy                           0.86       640
+   macro avg       0.86      0.80      0.82       640
+weighted avg       0.86      0.86      0.85       640
+
+# Metriche train
+precision_binary_smoke	0.9205298013245033
+recall_binary_smoke	0.7354497354497355
+f1_binary_smoke	0.8176470588235294
+roc_auc	0.9120590340102538
+precision_macro	0.9091401562859736
+recall_macro	0.8544210983235374
+f1_macro	0.8758448060075094
+precision_weighted	0.9044775203483255
+recall_weighted	0.903125
+f1_weighted	0.8996695087609512
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.90      0.97      0.93       451
+       smoke       0.92      0.74      0.82       189
+
+    accuracy                           0.90       640
+   macro avg       0.91      0.85      0.88       640
+weighted avg       0.90      0.90      0.90       640
+
+# Metriche train
+precision_binary_smoke	0.8888888888888888
+recall_binary_smoke	0.7272727272727273
+f1_binary_smoke	0.8
+roc_auc	0.9211136890951276
+precision_macro	0.8836768538261075
+recall_macro	0.8415946002952963
+f1_macro	0.8577777777777778
+precision_weighted	0.8818689291637053
+recall_weighted	0.88125
+f1_weighted	0.8778194444444445
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.88      0.96      0.92       431
+       smoke       0.89      0.73      0.80       209
+
+    accuracy                           0.88       640
+   macro avg       0.88      0.84      0.86       640
+weighted avg       0.88      0.88      0.88       640
+
+# Metriche train
+precision_binary_smoke	0.8928571428571429
+recall_binary_smoke	0.6912442396313364
+f1_binary_smoke	0.7792207792207793
+roc_auc	0.9124315019991066
+precision_macro	0.875453995157385
+recall_macro	0.8243455240709874
+f1_macro	0.8421243560908366
+precision_weighted	0.8698523569915254
+recall_weighted	0.8671875
+f1_weighted	0.8623714448958862
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.86      0.96      0.91       423
+       smoke       0.89      0.69      0.78       217
+
+    accuracy                           0.87       640
+   macro avg       0.88      0.82      0.84       640
+weighted avg       0.87      0.87      0.86       640
+
+# Metriche train
+precision_binary_smoke	0.9139072847682119
+recall_binary_smoke	0.6301369863013698
+f1_binary_smoke	0.745945945945946
+roc_auc	0.888523736699964
+precision_macro	0.8741315564945353
+recall_macro	0.7996290632219438
+f1_macro	0.8213246213246214
+precision_weighted	0.8615773422581562
+recall_weighted	0.853125
+f1_weighted	0.8451160157410158
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.83      0.97      0.90       421
+       smoke       0.91      0.63      0.75       219
+
+    accuracy                           0.85       640
+   macro avg       0.87      0.80      0.82       640
+weighted avg       0.86      0.85      0.85       640
+
+# Metriche train
+precision_binary_smoke	0.8944099378881988
+recall_binary_smoke	0.676056338028169
+f1_binary_smoke	0.7700534759358288
+roc_auc	0.9062462204923531
+precision_macro	0.8751799167520327
+recall_macro	0.8181218458290728
+f1_macro	0.8375653693144928
+precision_weighted	0.8687498784346271
+recall_weighted	0.865625
+f1_weighted	0.8601396586629836
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.86      0.96      0.91       427
+       smoke       0.89      0.68      0.77       213
+
+    accuracy                           0.87       640
+   macro avg       0.88      0.82      0.84       640
+weighted avg       0.87      0.87      0.86       640
+
+# Metriche train
+precision_binary_smoke	0.9627329192546584
+recall_binary_smoke	0.7311320754716981
+f1_binary_smoke	0.8310991957104558
+roc_auc	0.9333781520014107
+precision_macro	0.9218675034686653
+recall_macro	0.8585566919414566
+f1_macro	0.8808197191341695
+precision_weighted	0.9080754256408927
+recall_weighted	0.9015625
+f1_weighted	0.8976003957896728
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.88      0.99      0.93       428
+       smoke       0.96      0.73      0.83       212
+
+    accuracy                           0.90       640
+   macro avg       0.92      0.86      0.88       640
+weighted avg       0.91      0.90      0.90       640
+
+# Metriche train
+precision_binary_smoke	0.8830409356725146
+recall_binary_smoke	0.6990740740740741
+f1_binary_smoke	0.7803617571059431
+roc_auc	0.9194728336827395
+precision_macro	0.8722240925697328
+recall_macro	0.8259521313766597
+f1_macro	0.8425884933346065
+precision_weighted	0.8687086185613287
+recall_weighted	0.8671875
+f1_weighted	0.862812182608922
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.86      0.95      0.90       424
+       smoke       0.88      0.70      0.78       216
+
+    accuracy                           0.87       640
+   macro avg       0.87      0.83      0.84       640
+weighted avg       0.87      0.87      0.86       640
+
+# Metriche train
+precision_binary_smoke	0.9216867469879518
+recall_binary_smoke	0.7574257425742574
+f1_binary_smoke	0.8315217391304348
+roc_auc	0.9348523893485239
+precision_macro	0.9091556097808957
+recall_macro	0.8638726886387269
+f1_macro	0.881769641495042
+precision_weighted	0.9045347529357939
+recall_weighted	0.903125
+f1_weighted	0.9002985554919908
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.90      0.97      0.93       438
+       smoke       0.92      0.76      0.83       202
+
+    accuracy                           0.90       640
+   macro avg       0.91      0.86      0.88       640
+weighted avg       0.90      0.90      0.90       640
+
+# Metriche train
+precision_binary_smoke	0.9230769230769231
+recall_binary_smoke	0.7222222222222222
+f1_binary_smoke	0.8103896103896104
+roc_auc	0.9097877358490566
+precision_macro	0.897844194022538
+recall_macro	0.8457809224318658
+f1_macro	0.8644126822897773
+precision_weighted	0.8896435570798629
+recall_weighted	0.8859375
+f1_weighted	0.8819701806573315
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.87      0.97      0.92       424
+       smoke       0.92      0.72      0.81       216
+
+    accuracy                           0.89       640
+   macro avg       0.90      0.85      0.86       640
+weighted avg       0.89      0.89      0.88       640
+
+# Metriche train
+precision_binary_smoke	0.8957055214723927
+recall_binary_smoke	0.7448979591836735
+f1_binary_smoke	0.8133704735376045
+roc_auc	0.9326967273395845
+precision_macro	0.895441859268691
+recall_macro	0.8533048354476926
+f1_macro	0.8703117297112561
+precision_weighted	0.8953396901647567
+recall_weighted	0.8953125
+f1_weighted	0.8923764664785461
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.90      0.96      0.93       444
+       smoke       0.90      0.74      0.81       196
+
+    accuracy                           0.90       640
+   macro avg       0.90      0.85      0.87       640
+weighted avg       0.90      0.90      0.89       640
+
+# Metriche train
+precision_binary_smoke	0.9032258064516129
+recall_binary_smoke	0.693069306930693
+f1_binary_smoke	0.7843137254901961
+roc_auc	0.9211989692119898
+precision_macro	0.8876953774526106
+recall_macro	0.8294113657941136
+f1_macro	0.8504450534276549
+precision_weighted	0.8819685317592285
+recall_weighted	0.8796875
+f1_weighted	0.8748309806045927
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.87      0.97      0.92       438
+       smoke       0.90      0.69      0.78       202
+
+    accuracy                           0.88       640
+   macro avg       0.89      0.83      0.85       640
+weighted avg       0.88      0.88      0.87       640
+
+# Metriche train
+precision_binary_smoke	0.9113924050632911
+recall_binary_smoke	0.7309644670050761
+f1_binary_smoke	0.8112676056338028
+roc_auc	0.9334028485980451
+precision_macro	0.9007169494196123
+recall_macro	0.8496808791007322
+f1_macro	0.8694175866006852
+precision_weighted	0.8966135711565734
+recall_weighted	0.8953125
+f1_weighted	0.8917689855348305
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.89      0.97      0.93       443
+       smoke       0.91      0.73      0.81       197
+
+    accuracy                           0.90       640
+   macro avg       0.90      0.85      0.87       640
+weighted avg       0.90      0.90      0.89       640
+
+# Metriche train
+precision_binary_smoke	0.9363057324840764
+recall_binary_smoke	0.75
+f1_binary_smoke	0.8328611898016998
+roc_auc	0.9379251700680273
+precision_macro	0.9174282285608788
+recall_macro	0.8637387387387387
+f1_macro	0.8846075096797064
+precision_weighted	0.9101131957906397
+recall_weighted	0.9078125
+f1_weighted	0.904659208632434
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.90      0.98      0.94       444
+       smoke       0.94      0.75      0.83       196
+
+    accuracy                           0.91       640
+   macro avg       0.92      0.86      0.88       640
+weighted avg       0.91      0.91      0.90       640
+
+# Metriche train
+precision_binary_smoke	0.9467455621301775
+recall_binary_smoke	0.7692307692307693
+f1_binary_smoke	0.8488063660477454
+roc_auc	0.9586004273504274
+precision_macro	0.9224173670523499
+recall_macro	0.874198717948718
+f1_macro	0.8928417212298527
+precision_weighted	0.9139024987751103
+recall_weighted	0.9109375
+f1_weighted	0.9082540955435903
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.90      0.98      0.94       432
+       smoke       0.95      0.77      0.85       208
+
+    accuracy                           0.91       640
+   macro avg       0.92      0.87      0.89       640
+weighted avg       0.91      0.91      0.91       640
+
+# Metriche train
+precision_binary_smoke	0.9030303030303031
+recall_binary_smoke	0.764102564102564
+f1_binary_smoke	0.8277777777777777
+roc_auc	0.9277787381158167
+precision_macro	0.9030940988835726
+recall_macro	0.8640737539613944
+f1_macro	0.8801932367149758
+precision_weighted	0.903119019138756
+recall_weighted	0.903125
+f1_weighted	0.9006680253623187
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.90      0.96      0.93       445
+       smoke       0.90      0.76      0.83       195
+
+    accuracy                           0.90       640
+   macro avg       0.90      0.86      0.88       640
+weighted avg       0.90      0.90      0.90       640
+
+# Metriche train
+precision_binary_smoke	0.8757396449704142
+recall_binary_smoke	0.751269035532995
+f1_binary_smoke	0.8087431693989071
+roc_auc	0.937527930240286
+precision_macro	0.8858528373472029
+recall_macro	0.8519324861637887
+f1_macro	0.8660783680692566
+precision_weighted	0.889740095667031
+recall_weighted	0.890625
+f1_weighted	0.8881165850581724
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.90      0.95      0.92       443
+       smoke       0.88      0.75      0.81       197
+
+    accuracy                           0.89       640
+   macro avg       0.89      0.85      0.87       640
+weighted avg       0.89      0.89      0.89       640
+
+# Metriche train
+precision_binary_smoke	0.8765432098765432
+recall_binary_smoke	0.7845303867403315
+f1_binary_smoke	0.8279883381924198
+roc_auc	0.9443421321874361
+precision_macro	0.8974766258587736
+recall_macro	0.870478700995438
+f1_macro	0.8825107112520263
+precision_weighted	0.9065695784260551
+recall_weighted	0.9078125
+f1_weighted	0.9061938670497931
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.92      0.96      0.94       459
+       smoke       0.88      0.78      0.83       181
+
+    accuracy                           0.91       640
+   macro avg       0.90      0.87      0.88       640
+weighted avg       0.91      0.91      0.91       640
+

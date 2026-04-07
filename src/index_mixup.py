@@ -4,7 +4,7 @@ import torch.nn.functional as Fnn
 def build_mixup_index(labels01: torch.Tensor, mode: str):
     """
     Costruisce un indice di mixup per batch bilanciato.
-    mode: "hetero" (pos<->neg) oppure "homo" (pos->pos, neg->neg)
+    mode: "hetero" oppure "homo"
     """
     B = labels01.numel()
     device = labels01.device
@@ -13,7 +13,7 @@ def build_mixup_index(labels01: torch.Tensor, mode: str):
     idx_pos = torch.where(lab == 1)[0]
     idx_neg = torch.where(lab == 0)[0]
 
-    # batch mono-classe -> permutazione casuale
+    # batch monoclasse -> permutazione casuale
     if idx_pos.numel() == 0 or idx_neg.numel() == 0:
         return torch.randperm(B, device=device)
 

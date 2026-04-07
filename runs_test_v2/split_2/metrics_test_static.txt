@@ -1,0 +1,22 @@
+# Metriche test_static
+precision_binary_smoke	0.8541666666666666
+recall_binary_smoke	0.9098474341192788
+f1_binary_smoke	0.8811282740094023
+roc_auc	0.961408256417902
+precision_macro	0.8898979786422578
+recall_macro	0.8941202425753831
+f1_macro	0.8912605158347847
+precision_weighted	0.8942501481886148
+recall_weighted	0.892204628501827
+f1_weighted	0.8924946500400688
+
+Classification report:
+              precision    recall  f1-score   support
+
+    no_smoke       0.93      0.88      0.90      1842
+       smoke       0.85      0.91      0.88      1442
+
+    accuracy                           0.89      3284
+   macro avg       0.89      0.89      0.89      3284
+weighted avg       0.89      0.89      0.89      3284
+

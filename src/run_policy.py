@@ -12,7 +12,6 @@ def apply_finetune_freeze(model):
     frozen = 0
     for name, p in model.backbone.named_parameters():
         if any(name.startswith(pref) for pref in ["backbone.blocks_2", "backbone.blocks_3", "backbone.blocks_4"]):
-
             p.requires_grad = False
             frozen += 1
 
@@ -21,9 +20,7 @@ def apply_finetune_freeze(model):
 
 def resolve_resume_policy(args, last_ckpt_path, finetune_init_weights_path):
     """
-    Ritorna dict:
-      action: 'resume_full' | 'init_weights_only' | 'fresh'
-      ckpt_path: path o None
+    Ritorna dict
     """
     if args.finetune:
         if os.path.isfile(last_ckpt_path):

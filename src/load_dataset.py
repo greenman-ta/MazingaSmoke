@@ -30,7 +30,6 @@ class loadDataset(Dataset):
             with open(patch_path, "r") as pf:
                 return json.load(pf)
 
-        # ---- PATCH 1 ----
         patch_entries_1 = _load_patch(self.PATCH_JSON, "PATCH_1")
         n_total_1, n_used_1 = 0, 0
         for e in patch_entries_1:

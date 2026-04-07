@@ -77,7 +77,7 @@ def load_full_checkpoint(path, model, optimizer=None, warmup=None, cosine=None, 
             new_state = {k.replace("module.", ""): v for k, v in ck.items()}
             model.load_state_dict(new_state)
 
-    # Fallback: best_val.txt se presente
+    # best_val.txt se presente
     try:
         ck_dir = os.path.dirname(os.path.abspath(path))
         bestval_path = os.path.join(ck_dir, "best_val.txt")

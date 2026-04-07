@@ -1,5 +1,7 @@
 """
-Helper functions
+This file is obtained and modified from:
+- https://github.com/CMU-CREATE-Lab/deep-smoke-machine
+
 """
 import os
 thread = "1"

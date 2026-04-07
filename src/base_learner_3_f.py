@@ -1,3 +1,8 @@
+"""
+This file is obtained and modified from:
+- https://github.com/CMU-CREATE-Lab/deep-smoke-machine
+"""
+
 from abc import ABC, abstractmethod
 import torch
 import torch.nn as nn
@@ -170,19 +175,15 @@ class BaseLearner(ABC):
             std = (127.5, 127.5, 127.5, 127.5)
         else:
             return None
-        nm = Normalize(mean=mean, std=std) # same as (img/255)*2-1
+        nm = Normalize(mean=mean, std=std) 
         tt = ToTensor()
         if phase == "train":
-            # Deals with small camera shifts, zoom changes, and rotations due to wind or maintenance
             rrc = RandomResizedCrop(image_size, scale=(0.5, 1), ratio=(3./4., 4./3.))
             rp = RandomPerspectiveReflect(distortion_scale=0.4, p=0.5)
-            # Improve generalization
             rhf = RandomHorizontalFlip(p=0.5)
-            # Deal with dirts, ants, or spiders on the camera lense
             re = RandomErasing(p=0.5, scale=(0.003, 0.01), ratio=(0.3, 3.3), value=0)
 
             if mode == "rgb" or mode == "rgbd":
-                # Color jitter deals with different lighting and weather conditions
                 cj = ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=(-0.1, 0.1), gamma=0.3)
                 return Compose([cj, rrc, rp, rhf, tt, nm, re, re])
             elif mode == "flow":

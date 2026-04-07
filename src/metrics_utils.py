@@ -1,3 +1,7 @@
+"""
+This file is obtained and modified from:
+- https://github.com/CMU-CREATE-Lab/deep-smoke-machine
+"""
 import os
 from typing import List, Tuple, Optional, Dict, Any
 from sklearn.metrics import classification_report as cr
@@ -20,7 +24,7 @@ def compute_and_log_metrics(
     save_curves: bool = True,
     current_epoch: Optional[int] = None,
 ) -> Dict[str, Any]:
-    """Calcola metriche, salva file testuali e (opzionale) curve ROC/PR come PNG e NPZ."""
+    """Calcola metriche, salva file testuali e curve """
 
     results: Dict[str, Any] = {}
     if len(all_true) == 0:
@@ -28,12 +32,12 @@ def compute_and_log_metrics(
             print("[METRICS] Nessuna etichetta: salto calcolo metriche.")
         return results
 
-    # --- Metriche principali  ---
+    # Metriche principali  
     prec, rec, f1, _ = prfs(all_true, all_pred, average='binary', pos_label=1, zero_division=0)
     prec_macro, rec_macro, f1_macro, _ = prfs(all_true, all_pred, average='macro', zero_division=0)
     prec_w, rec_w, f1_w, _ = prfs(all_true, all_pred, average='weighted', zero_division=0)
 
-    # --- ROC-AUC su score continui ---
+    # ROC-AUC su score continui 
     try:
         roc_auc = roc_auc_score(all_true, all_score)
     except ValueError:
@@ -41,7 +45,7 @@ def compute_and_log_metrics(
 
     report = cr(all_true, all_pred, target_names=list(class_names), zero_division=0)
 
-    # --- Conteggi ---
+    # Conteggi 
     true_no = sum(1 for v in all_true if v == 0)
     true_yes = sum(1 for v in all_true if v == 1)
     pred_no = sum(1 for v in all_pred if v == 0)
@@ -90,7 +94,7 @@ def compute_and_log_metrics(
         print(f"Confusion matrix (tn fp / fn tp): {tn} {fp} / {fn} {tp}")
         print("\nClassification report:\n" + report)
 
-    # --- Salvataggi testuali ---
+    # Salvataggi testuali 
     safe_label = dataset_label.lower().replace(' ','_')
     if save_metrics:
         metrics_path = os.path.join(run_dir, f'metrics_{safe_label}.txt')
