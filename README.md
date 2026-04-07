@@ -235,7 +235,7 @@ The static branch also draws inspiration from the CEPool and CEConv modules intr
 If you use this repository, please cite this work as:
 
 ```bibtex
-@thesis{verde2026mazingasmoke,
+@thesis{mazingasmoke,
   author       = {Daniele Verde},
   title        = {MazingaSmokeClassifier: Deep Learning e visione artificiale per il rilevamento di fumi industriali},
   school       = {Sapienza Università di Roma},
