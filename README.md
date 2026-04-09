@@ -24,7 +24,7 @@ The repository includes:
 
 ## Results on RISE
 
-**MazingaSmokeClassifier_v2** reaches an average **F1-score of 0.887**, staying only **0.006 below the best model** in the comparison (**STENet, 8 frames, Avg F1 = 0.893**), while using only **1.9M parameters**, the **lowest number of parameters among all compared methods**.
+**MazingaSmokeClassifier_v2** achieves an average **F1-score of 0.887** while using only **1.9M parameters**, the **lowest number of parameters among all compared methods**.
 
 ### Performance comparison on the six RISE splits
 
