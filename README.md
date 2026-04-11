@@ -129,7 +129,17 @@ The splits were constructed so that the same views do not appear in different su
 
 Despite the strong domain shift from **RISE** to **ILVA**, both **MazingaSmokeClassifier_v1** and **MazingaSmokeClassifier_v2** make only **3 errors out of 71 clips** on the **ILVA** test set, all of them corresponding to **false negatives**. The two models miss the same clips.
 
-In 2 of the 3 missed cases, the smoke is extremely faint and difficult to distinguish even for a human observer; in the remaining case, the emission is still visible but weak.  
+In 2 of the 3 missed cases, the smoke is extremely faint and difficult to distinguish even for a human observer; in the remaining case, the emission is still visible but weak. 
+
+### Classification report on the ILVA test set
+
+| Class | Precision | Recall | F1-score | Support |
+|---|---:|---:|---:|---:|
+| no_smoke | 0.95 | 1.00 | 0.97 | 58 |
+| smoke | 1.00 | 0.77 | 0.87 | 13 |
+| macro avg | 0.98 | 0.88 | 0.92 | 71 |
+
+Since both variants make the same 3 false-negative errors on the **ILVA** test set, their classification metrics coincide.
 
 ## Model overview
 
@@ -230,15 +240,3 @@ This repository includes code adapted from the project
 
 The static branch also draws inspiration from the CEPool and CEConv modules introduced in CENet. 
 [CENet: A Channel-Enhanced Spatiotemporal Network With Sufficient Supervision Information for Recognizing Industrial Smoke Emissions](https://ieeexplore.ieee.org/document/9741308)
-
-## Citation
-If you use this repository, please cite this work as:
-
-```bibtex
-@thesis{mazingasmoke,
-  author       = {Daniele Verde},
-  title        = {MazingaSmokeClassifier: Deep Learning e visione artificiale per il rilevamento di fumi industriali},
-  school       = {Sapienza Università di Roma},
-  year         = {2026},
-  note         = {Relazione di tirocinio}
-}
