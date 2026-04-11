@@ -32,7 +32,7 @@ class ChannelAxisConv(nn.Module):
     """
     def __init__(self, C, k=3):
         super().__init__()
-        assert k % 2 == 1, 
+         
         self.conv3d = nn.Conv3d(
             1, 1,
             kernel_size=(k, 1, 1),
