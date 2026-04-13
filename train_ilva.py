@@ -665,7 +665,7 @@ def main():
     ]
     tau_ids = {id(p) for p in tau_params}
 
-    head_params = (
+    model_params = (
         list(model.static_branch.parameters()) +
         list(model.temporal_branch.parameters()) +
         [p for p in model.fusion_module.parameters() if id(p) not in tau_ids] +
@@ -683,7 +683,7 @@ def main():
 
     base_optim = AdamW([
         {"params": backbone_trainable, "lr": 1e-4, "weight_decay": 5e-4},
-        {"params": head_params,                "lr": 5e-4, "weight_decay": 5e-3},
+        {"params": model_params,                "lr": 5e-4, "weight_decay": 5e-3},
         {"params": tau_params,                 "lr": 3e-5, "weight_decay": 0.0},
     ])
 

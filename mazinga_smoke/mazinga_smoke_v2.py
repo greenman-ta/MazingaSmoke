@@ -92,7 +92,7 @@ class MazingaSmokeClassifier(nn.Module):
 
         cat = torch.cat([deep_2d, delta_ds], dim=1)  # [B*K,Cd+128,Hd,Wd]
         static_2d = self.static_in_proj(cat)         # [B*K,128,Hd,Wd]
-        static_in = static_2d.view(B, K, d_mod, Hd, Wd)
+        static_in = static_2d.view(B, K, 128, Hd, Wd)
         return static_in
 
 
