@@ -36,8 +36,10 @@ The repository includes:
 | STENet (4 frames) | 6.9M | 0.90 | 0.88 | 0.89 | 0.90 | 0.84 | 0.88 | 0.882 |
 | STENet (6 frames) | 6.9M | 0.90 | 0.89 | 0.90 | 0.91 | 0.85 | 0.88 | 0.887 |
 | STENet (8 frames) | 6.9M | 0.90 | 0.89 | 0.90 | 0.91 | 0.86 | 0.89 | 0.893 |
-| **MazingaSmokeClassifier_v1** | **1.9M** | **0.86** | **0.88** | **0.89** | **0.92** | **0.84** | **0.84** | **0.872** |
-| **MazingaSmokeClassifier_v2** | **1.9M** | **0.87** | **0.90** | **0.90** | **0.93** | **0.86** | **0.86** | **0.887** |
+| **MazingaSmokeClassifier_v1** | **1.9M** | **0.85** | **0.85** | **0.87** | **0.90** | **0.83** | **0.81** | **0.851** |
+| **MazingaSmokeClassifier_v2** | **1.9M** | **0.86** | **0.87** | **0.88** | **0.90** | **0.84** | **0.83** | **0.863** |
+| **MazingaSmokeClassifier_v1 (patch)** | **1.9M** | **0.86** | **0.88** | **0.89** | **0.92** | **0.84** | **0.84** | **0.872** |
+| **MazingaSmokeClassifier_v2 (patch)** | **1.9M** | **0.87** | **0.90** | **0.90** | **0.93** | **0.86** | **0.86** | **0.887** |
 
 A particularly relevant result is that **MazingaSmokeClassifier_v2** achieves the **best score on split S1 (0.90)** together with the **highest score in the whole table on split S3 (0.93)**. **MazingaSmokeClassifier_v1** is also very competitive on S3, reaching **0.92**. 
 
