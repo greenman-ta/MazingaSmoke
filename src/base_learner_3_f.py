@@ -10,7 +10,7 @@ import os
 import logging
 import absl.logging
 import logging.handlers
-from util import check_and_create_dir
+from src.util import check_and_create_dir
 from collections import OrderedDict
 from torchvision.transforms import Compose
 from .video_transforms_3 import RandomResizedCrop, RandomHorizontalFlip, ColorJitter, RandomPerspective, RandomErasing, Resize, Normalize, ToTensor, RandomPerspectiveReflect

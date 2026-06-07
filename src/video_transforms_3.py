@@ -21,7 +21,7 @@ import numbers
 import random
 import warnings
 import types
-import opencv_functional as F
+import src.opencv_functional as F
 import torchvision.transforms.functional as FF
 from torchvision.transforms import Compose
 import math
