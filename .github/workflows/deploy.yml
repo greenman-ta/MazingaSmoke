@@ -1,0 +1,55 @@
+name: CD pipeline
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags (e.g., v1.0.0)
+  
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Build image
+      run: docker build -t mazinga-smoke:ci .
+
+    - name: Check build
+      run: |
+       docker run -d -p 8000:8000 --name mazinga-smoke-test mazinga-smoke:ci
+       for i in $(seq 1 30); do
+        if curl -sf http://localhost:8000/health; then
+            echo "Server is healthy!"
+            docker rm -f mazinga-smoke-test
+            exit 0
+          else
+            echo "Waiting for server to be healthy..."
+            sleep 2
+        fi
+        done
+
+        echo "/health non ha risposto"
+        docker logs mazinga-smoke-test
+        docker rm -f mazinga-smoke-test
+        exit 1
+
+    - name: login to ghcr
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push image to GitHub Container Registry
+      run: |
+        IMAGE_NAME=ghcr.io/greenman-ta/mazinga-smoke
+        docker tag mazinga-smoke:ci $IMAGE_NAME:${GITHUB_REF_NAME}
+        docker tag mazinga-smoke:ci $IMAGE_NAME:latest
+        docker push $IMAGE_NAME:${GITHUB_REF_NAME}
+        docker push $IMAGE_NAME:latest
+
