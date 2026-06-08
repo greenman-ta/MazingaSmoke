@@ -1,0 +1,14 @@
+.git
+.github
+venv
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+tests
+ilva
+runs_test_v1
+runs_test_v2
+runs-customnet
+*.mp4
+.DS_Store
