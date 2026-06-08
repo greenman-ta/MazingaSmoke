@@ -21,7 +21,7 @@ The repository includes:
 - two main model variants (**v1** and **v2**)
 - training and fine-tuning code for domain shift experiments from **RISE** to **ILVA**
 - pretrained model weights
-- development
+- development setup (tests, CI/CD)
 - RISE relabeling patch
 - third-party code
 
@@ -198,7 +198,7 @@ MazingaSmokeClassifier_v1 is the first stable version of the architecture.
 
 The model takes as input a clip of 36 RGB frames resized to **224×224** and first extracts frame-level features through a **GhostNetV2** backbone. From these features, the network splits into two complementary paths: a **temporal branch**, which models the evolution of the clip over time, and a **static branch**, which focuses on spatial appearance on a small subset of relevant frames.  
 
-The key idea of **v1** is to avoid processing all frames in the static path. Instead, the temporal branch identifies a small set of informative and non-redundant frames through the **Selecta** module. In the reference configuration used in this repository, **K = 4** frames are selected, with a **suppression radius of 2**, in order to encourage temporal diversity and reduce redundancy among neighboring frames.
+The key idea of **v1** is to avoid processing all frames in the static path. Instead, the temporal branch identifies a small set of informative and non-redundant frames through the **Selecta** module. In the reference configuration used in this repository, **K = 4** frames are selected, with a **suppression radius of 2**, to encourage temporal diversity and reduce redundancy among neighboring frames.
 
 Once the top-K frames have been selected, the model builds a static input from those frames and extracts spatial features only on that subset. It then combines static and temporal information through a **cross-attention fusion** module. 
 
@@ -257,7 +257,7 @@ The repository includes pretrained checkpoints and experiment outputs for both m
 - `runs_test_v1/` and `runs_test_v2/` store the inference outputs obtained on the **RISE** test splits.
 - `finetune_ilva_v1/` and `finetune_ilva_v2/` store the **ILVA fine-tuning** experiments, including both training runs and final results.
 
-## Development
+## Development setup
 
 ### Tests
 Functional `pytest` suite:
