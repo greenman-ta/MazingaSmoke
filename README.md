@@ -17,10 +17,13 @@ The code is released under the BSD 3-Clause License, while the ILVA dataset is r
 The repository includes:
 - results on RISE
 - the **ILVA** dataset
+- inference API
 - two main model variants (**v1** and **v2**)
 - training and fine-tuning code for domain shift experiments from **RISE** to **ILVA**
 - pretrained model weights
+- development
 - RISE relabeling patch
+- third-party code
 
 ## Results on RISE
 
@@ -143,6 +146,40 @@ In 2 of the 3 missed cases, the smoke is extremely faint and difficult to distin
 
 Since both variants make the same 3 false-negative errors on the **ILVA** test set, their classification metrics coincide.
 
+## Inference API
+
+A FastAPI service exposes the classifier over REST. CPU-only inference; models load once at startup.
+
+### Endpoints
+- `GET /health` → `{"status": "ok"}`
+- `POST /predict` (multipart) → `{"smoke": bool, "confidence": float, "threshold": float}`
+  - `file`: clip as `.npy` (T×224×224×3, uint8 RGB) or `.mp4`
+  - `version`: `v1` or `v2`
+  - `threshold`: optional, default `0.5`
+
+Interactive docs at `/docs`.
+
+### Run with Docker (recommended)
+```bash
+docker pull ghcr.io/greenman-ta/mazinga-smoke:latest
+docker run -p 8000:8000 ghcr.io/greenman-ta/mazinga-smoke:latest
+curl http://localhost:8000/health
+```
+
+### Run locally
+```bash
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+uvicorn api.src.main:app --host 0.0.0.0 --port 8000
+```
+
+### Example request
+```bash
+curl -X POST http://localhost:8000/predict \
+     -F "file=@tests/test_files/0.npy" \
+     -F "version=v1"
+```
+
 ## Model overview
 
 MazingaSmokeClassifier is a lightweight spatio-temporal model for binary classification of industrial smoke emissions in video clips.
@@ -219,6 +256,19 @@ The repository includes pretrained checkpoints and experiment outputs for both m
 - `weights_v1/` and `weights_v2/` store the pretrained model weights for **MazingaSmokeClassifier_v1** and **MazingaSmokeClassifier_v2**.
 - `runs_test_v1/` and `runs_test_v2/` store the inference outputs obtained on the **RISE** test splits.
 - `finetune_ilva_v1/` and `finetune_ilva_v2/` store the **ILVA fine-tuning** experiments, including both training runs and final results.
+
+## Development
+
+### Tests
+Functional `pytest` suite:
+- **Model / inference** — weights load, forward output shape, finite predictions, batching.
+- **Preprocessing** — file-type detection, `.npy` / `.mp4` clip pipeline.
+- **API** — `/health` and `/predict`, with inference mocked.
+
+### CI / CD
+Two GitHub Actions workflows:
+- **CI** (`.github/workflows/ci.yml`) — on every push and pull request. Sets up Python 3.12, installs CPU-only PyTorch and dependencies, runs the test suite.
+- **CD** (`.github/workflows/deploy.yml`) — on a `v*` tag. Builds the Docker image, starts the container, and polls `/health` as a test; publishes to GHCR (`:<tag>` and `:latest`) **only if the test passes**.
 
 ## RISE relabeling patch
 
