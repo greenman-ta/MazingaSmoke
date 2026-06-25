@@ -1,21 +1,21 @@
-from fastapi import FastAPI, UploadFile, File, Form
-from pydantic import BaseModel, Field
-from typing import Literal
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Request
+from enum import Enum
 import tempfile
 import os
+from api.src.exceptions import GeneralInputError, MediaError
+from fastapi.responses import JSONResponse
 
 from .preprocess import pipeline_preprocess
 from .inference import inference
+
 
 app = FastAPI(
     title="Mazinga Smoke Classifier API",
 )
 
-class PredictionRequest(BaseModel):
-    file: UploadFile = Field(..., description="File to be uploaded")
-    version: Literal["v1", "v2"] = Field(..., examples =["v1 o v2"])
-    #threshold: float = 0.5
-
+class ModelVersion(str, Enum):
+    v1 = "v1"
+    v2 = "v2"
 
 ALLOWED_EXTS = {".mp4", ".npy"}
 
@@ -27,6 +27,22 @@ ALLOWED_CONTENT_TYPES = {
 
 }
 
+@app.exception_handler(GeneralInputError)
+async def exception_general_handler(request: Request, exc: GeneralInputError):
+    return JSONResponse(
+        status_code= 400,
+        content={"detail": exc.detail},
+    )
+
+@app.exception_handler(MediaError)
+async def exception_media_handler(request: Request, exc: MediaError):
+    return JSONResponse(
+        status_code= 415,
+        content={"detail": exc.detail},
+    )
+
+
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}
@@ -34,7 +50,7 @@ async def health():
 @app.post("/predict", response_model = dict)
 async def predict(
     file: UploadFile = File(..., description=".mp4 o .npy da caricare"),
-    version: Literal["v1", "v2"] = Form(..., description="Versione del modello: v1 o v2"),
+    version: ModelVersion = Form(..., description="Versione del modello: v1 o v2"),
 ):
 
     tmp_path = None
@@ -43,11 +59,11 @@ async def predict(
 
     #controlli sui file in ingresso
     if suffix not in ALLOWED_EXTS:
-        return {"error": "File non supportato. Caricare un file .mp4 o .npy."}
+        raise HTTPException(status_code=415, detail="File non supportato. Caricare un file .mp4 o .npy.")
 
     allowed_types = ALLOWED_CONTENT_TYPES.get(suffix, set())
     if file.content_type not in allowed_types:
-        return {"error": f"Content-Type non valido per {suffix}. Ricevuto: {file.content_type}"}
+        raise HTTPException(status_code=415, detail="File non supportato. Caricare un file .mp4 o .npy.")
 
     try:
         with tempfile.NamedTemporaryFile(delete=False) as tmp:
@@ -58,11 +74,8 @@ async def predict(
         preprocessed_data = pipeline_preprocess(tmp_path)
         result = inference(preprocessed_data, version)
         return result
-    except Exception as e:
-        return {"error": str(e)}
-
+    
     finally:
-
         await file.close()
         if tmp_path and os.path.exists(tmp_path):
             os.remove(tmp_path)
