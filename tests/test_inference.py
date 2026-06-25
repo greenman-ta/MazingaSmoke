@@ -3,6 +3,7 @@ import torch
 import os
 import sys
 import numpy as np
+from api.src.exceptions import GeneralInputError
 
 CURRENT_FILE = os.path.abspath(__file__)
 CURRENT_DIR = os.path.dirname(CURRENT_FILE)
@@ -101,7 +102,7 @@ def test_get_transform_output_type():
 #TEST FUNZIONI
 def test_n_frames_not_enough():
     frames =np.random.rand(10,224,224,3).astype(np.float32)
-    with pytest.raises(ValueError, match="Not enough frames"):
+    with pytest.raises(GeneralInputError, match="Not enough frames"):
         preprocess_npy(frames)
 
 def test_n_frames_downsampled():
