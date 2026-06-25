@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 import tempfile, os
-from exceptions import MediaError, GeneralInputError
+from api.src.exceptions import MediaError, GeneralInputError
 
 TARGET_FRAMES = 36
 TARGET_SIZE = 224
