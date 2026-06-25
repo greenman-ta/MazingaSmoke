@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Request
 from enum import Enum
 import tempfile
 import os
-from api.src.exceptions import GeneralInputError, MediaError
+from exceptions import GeneralInputError, MediaError
 from fastapi.responses import JSONResponse
 
 from .preprocess import pipeline_preprocess
