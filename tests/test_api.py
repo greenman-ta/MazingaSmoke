@@ -26,6 +26,12 @@ def make_dummy_npy(tmp_path):
     np.save(npy_path, dummy_data)
     return npy_path
 
+@pytest.fixture
+def make_wrong_input(tmp_path):
+    path = tmp_path /"wrong.mp3"
+    path.write_bytes(b"contenuto qualsiasi")
+    return path
+
 def test_health(client):
     response = client.get("/health")
     assert response.status_code == 200
@@ -45,3 +51,14 @@ def test_predict(mock_inference, client, make_dummy_npy):
     assert response.status_code == 200
     mock_inference.assert_called_once()
     assert response.json() == {"smoke": True, "confidence": 0.9, "threshold": 0.5}
+
+def test_mp3(make_wrong_input, client):
+    with open(make_wrong_input, "rb") as f:
+        response = client.post(
+            "/predict",
+            files={"file": ("wrong.mp3", f, "application/octet-stream")},
+            data={"version": "v1"}
+        )
+    assert response.status_code == 415
+    
+    
